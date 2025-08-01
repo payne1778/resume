@@ -54,12 +54,16 @@
 #custom-title("Projects")[
   #project-heading(
     "LLM Benchmarker",          // name
+    "July 2025",                // start date
+    "Present"                   // end date
   )[
     - Benchmarking LLMs from Ollama in Java by evaluating their accuracy on linear algebra problems using the
       Wolfram Alpha API, contributing insights to LLM mathematical reasoning in the CS research community
   ]
   #project-heading(
     "Translation Library",
+    "June 2025",
+    "Present"
   )[
     - Building a cross-language TOML-based translation library with a Python CLI and Java Package for managing
       multilingual content across apps and tools
@@ -68,6 +72,8 @@
   ]
   #project-heading(
     "Submission Organizer",
+    "November 2024",
+    "December 2024"
   )[
     - Co-engineered a lecture-wide file organizer in Python to process, filter, and sort student submissions, significantly
       reducing manual effort for TAs and saving dozens of hours during grading
@@ -128,7 +134,7 @@
 
 #custom-title("Achievements")[
   #activity-heading(
-    "Tau Beta Pi Engineering Honor Society, Secretary",
+    "College of Computer Science & Engineering Dean’s List",
     "Fall 2023",
     "Present"
   )

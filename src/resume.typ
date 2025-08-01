@@ -143,11 +143,12 @@
   }
 }
 
-#let project-heading(name, body) = {
-  [*#name*]
-  v(-0.3em)
+#let project-heading(name, start-date, end-date, body) = {
+  generic_1x2(
+    [*#name*], [*#start-date* - *#end-date*]
+  )
   if body != [] {
-    v(-0.4em)
+    v(-0.1em)
     set par(leading: 0.6em)
     set list(indent: 0.5em)
     body

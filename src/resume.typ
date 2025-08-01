@@ -110,8 +110,8 @@
   )
 }
 
-#let custom-title(title, spacing-between: -0.01em, body) = {
-  [= #title]
+#let custom-title(title, spacing-between: -0.001em, body) = {
+  [= *#title*]
   body
   v(spacing-between)
 }
@@ -134,7 +134,7 @@
     [*#title*], [*#start-date* - *#end-date*],
     emph(company), emph(location)
   )
-  v(-0.4em)
+  v(-0.04em)
   if body != [] {
     v(-0.4em)
     set par(leading: 0.6em)
@@ -145,7 +145,7 @@
 
 #let project-heading(name, body) = {
   [*#name*]
-  v(-0.2em)
+  v(-0.3em)
   if body != [] {
     v(-0.4em)
     set par(leading: 0.6em)
@@ -167,6 +167,7 @@
     set list(indent: 0.5em)
     body
   }
+  v(-0.2em)
 }
 
 #let activity-heading(activity, start-date, end-date) = {
@@ -180,4 +181,9 @@
         [#activity], [#start-date - #end-date]
     )
   }
+  v(-0.05em)
+}
+
+#let spacer() = {
+    v(0.5em)
 }

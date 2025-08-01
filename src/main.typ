@@ -1,4 +1,4 @@
-#import "./resume.typ": resume, custom-title, work-heading, project-heading, education-heading, skills, activity-heading
+#import "./resume.typ": resume, custom-title, work-heading, project-heading, education-heading, skills, activity-heading, spacer
 
 // Put your personal information here
 #let name = "Blake Payne"
@@ -40,6 +40,8 @@
       ""
     )[]
 ]
+
+#spacer()
 
 #custom-title("Skills")[
   #skills()[
@@ -121,6 +123,8 @@
     ""
   )
 ]
+
+#spacer()
 
 #custom-title("Achievements")[
   #activity-heading(

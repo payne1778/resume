@@ -33,7 +33,7 @@
     Minor in German
   ]
   #education-heading(
-      "Enrolled in Combined B.S./M.S. (4+1) Program in Computer Engineering",
+      "Combined B.S./M.S. (4+1) Program in Computer Engineering",
       "December 2027",
       "Wright State University",
       "Dayton, OH",
@@ -45,8 +45,8 @@
 
 #custom-title("Skills")[
   #skills()[
-    - *Programming Languages:* Java, Python, Bash, GoLang, C, C++, MATLAB
-    - *Development Tools:* VSCode, Zed, IntelliJ, PyCharm, Rider, CLion, MATLAB IDEs
+    - *Programming Languages:* Java, Python, Bash, GoLang, C/C++, MATLAB
+    - *Development Tools:* VSCode, Zed, git, IntelliJ, PyCharm, Rider, CLion, MATLAB IDE
     - *Computer Software:* Linux (Arch), Windows, Microsoft Office Products, Google Workspace Products
   ]
 ]
@@ -111,11 +111,6 @@
   #activity-heading(
     "Wright State Honors Program",
     "December 2022",
-    "Present"
-  )
-  #activity-heading(
-    "IEEE Wright State University Student Chapter, Treasurer",
-    "August 2023",
     "Present"
   )
   #activity-heading(

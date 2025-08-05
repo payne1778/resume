@@ -28,7 +28,7 @@
     "December 2026",                                    // grad-date
     "Wright State University",                          // uni
     "Dayton, OH",                                       // location
-    "GPA: 3.86"                                         // gpa
+    "GPA: 3.88"                                         // gpa
   )[
     Minor in German
   ]
@@ -88,7 +88,7 @@
     "August 2024",                                      // start-date
     "Present"                                           // end-date
   )[
-    - Led weekly lecture sections for ~50 students, facilitating engaging discussions and academic support through
+    - Led weekly lecture sections for \~50 students, facilitating engaging discussions and academic support through
       office hours and personalized communication
     - Collaborated with faculty and a team of TAs to coordinate grading logistics, address student concerns, and ensure
       consistency across course delivery
@@ -115,12 +115,12 @@
   )
   #activity-heading(
     "Make-IT-Wright Hackathon 2025",
-    "Spring 2025",
-    ""
+    "January 2025",
+    "Febuary 2025"
   )
   #activity-heading(
     "ACM Programming Contest",
-    "Fall 2023, Fall 2024",
+    "October 2023, October 2024",
     ""
   )
 ]

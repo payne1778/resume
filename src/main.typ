@@ -130,7 +130,7 @@
 #custom-title("Achievements")[
   #activity-heading(
     "College of Computer Science & Engineering Dean’s List",
-    "Fall 2023",
+    "August 2023",
     "Present"
   )
   #activity-heading(

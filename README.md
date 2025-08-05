@@ -1,4 +1,4 @@
-### \[ [current resume](/BLAKE%20PAYNE%20COMPUTER%20ENGINEERING%2007-31-2025.pdf) \]
+### \[ [current resume](/BLAKE%20PAYNE%20COMPUTER%20ENGINEERING%2008-04-2025.pdf) \]
 
 #### ~how to compile my lovely resume~
 ```bash

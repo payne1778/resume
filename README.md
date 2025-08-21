@@ -2,7 +2,7 @@
 
 #### ~how to compile my lovely resume~
 ```bash
-typst compile --root .. src/main.typ BLAKE\ PAYNE\ COMPUTER\ ENGINEERING\ 08-05-2025.pdf
+typst compile --root .. src/main.typ BLAKE\ PAYNE\ COMPUTER\ ENGINEERING\ 08-20-2025.pdf
 ```
 
 ### markdown is now cringe btw

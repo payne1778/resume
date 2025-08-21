@@ -1,4 +1,4 @@
-#import "./resume.typ": resume, custom-title, work-heading, project-heading, education-heading, skills, activity-heading, spacer
+#import "./resume.typ": resume, custom-title, work-heading, project-heading, education-heading, skills, activity-heading, spacer, courses
 
 // Put your personal information here
 #let name = "Blake Payne"
@@ -9,8 +9,6 @@
 #let linkedin = "blake-payne"
 
 #show: resume.with(
-  top-margin: 0.45in,
-  font: "Liberation Serif",
   author-position: center,
   personal-info-position: center,
   author-name: name,
@@ -41,7 +39,19 @@
     )[]
 ]
 
-#spacer()
+#custom-title("Courses")[
+    #courses(
+        "Operating System Internals & Design",
+        "Operating System Concepts & Usage",
+        "Differential Equations w/ Matrix Algebra",
+        "Computer Orgranization",
+        "Data Structures & Algorithms",
+        "Digital Circuit Design w/ VDHL",
+        "Calculus I-II",
+        "Computer Science I-II",
+        "Analog Circuit Theory",
+    )
+]
 
 #custom-title("Skills")[
   #skills()[
@@ -67,8 +77,7 @@
   )[
     - Building a cross-language TOML-based translation library with a Python CLI and Java Package for managing
       multilingual content across apps and tools
-    - Streamlining internationalization by standardizing translation file formats and enabling easy collaboration
-      between developers and translators
+    - Streamlining internationalization by standardizing translation files for smoother developer/translator collaboration
   ]
   #project-heading(
     "Submission Organizer",

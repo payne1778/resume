@@ -4,7 +4,7 @@
   bottom-margin: 0.4in,
   left-margin: 0.4in,
   right-margin: 0.4in,
-  font: "New Computer Modern",
+  font: "Liberation Serif",
   font-size: 11pt,
   personal-info-font-size: 10pt,
   author-name: "",
@@ -59,7 +59,7 @@
 
   align(author-position, [
     #text(font-size+16pt, weight: "extrabold")[#author-name]
-    #v(-1.90em)
+    #v(-2em)
   ])
 
   align(personal-info-position, text(personal-info-font-size)[
@@ -110,10 +110,59 @@
   )
 }
 
+#let generic_1x3(cols, r1c1, r1c2, r1c3) = {
+  assert.eq(type(cols), array)
+
+  grid(
+    columns: cols,
+    align(center)[#r1c1],
+    align(center)[#r1c2],
+    align(center)[#r1c3]
+  )
+  v(-0.5em)
+}
+
+#let spacer() = {
+    v(0.5em)
+}
+
 #let custom-title(title, spacing-between: -0.001em, body) = {
   [= *#title*]
   body
   v(spacing-between)
+}
+
+#let education-heading(major, grad-date, uni, location, gpa, body) = {
+  generic_2x2(
+    (70%, 30%),
+    [*#major*], [*#grad-date*],
+    [#uni | #location], [#gpa]
+  )
+  v(-0.1em)
+  if body != [] {
+    v(-0.4em)
+    set par(leading: 0.6em)
+    set list(indent: 0.5em)
+    body
+  }
+  v(-0.1em)
+}
+
+// TODO: don't use genric grid functions here; make this into a 3x3 grid
+#let courses(c1, c2, c3, c4, c5, c6, c7, c8, c9) = {
+    generic_1x3(
+        (31%, 34%, 36%),
+        [#c1], [#c2], [#c3]
+    )
+    generic_1x3(
+        (31%, 34%, 36%),
+        [#c4], [#c5], [#c6]
+    )
+    generic_1x3(
+        (31%, 34%, 36%),
+        [#c7], [#c8], [#c9]
+    )
+    v(0.1em)
 }
 
 #let skills(body) = {
@@ -124,6 +173,18 @@
       indent: 0em,
       marker: []
     )
+    body
+  }
+}
+
+#let project-heading(name, start-date, end-date, body) = {
+  generic_1x2(
+    [*#name*], [*#start-date* - *#end-date*]
+  )
+  if body != [] {
+    v(-0.1em)
+    set par(leading: 0.6em)
+    set list(indent: 0.5em)
     body
   }
 }
@@ -143,34 +204,6 @@
   }
 }
 
-#let project-heading(name, start-date, end-date, body) = {
-  generic_1x2(
-    [*#name*], [*#start-date* - *#end-date*]
-  )
-  if body != [] {
-    v(-0.1em)
-    set par(leading: 0.6em)
-    set list(indent: 0.5em)
-    body
-  }
-}
-
-#let education-heading(major, grad-date, uni, location, gpa, body) = {
-  generic_2x2(
-    (70%, 30%),
-    [*#major*], [*#grad-date*],
-    [#uni | #location], [#gpa]
-  )
-  v(-0.2em)
-  if body != [] {
-    v(-0.4em)
-    set par(leading: 0.6em)
-    set list(indent: 0.5em)
-    body
-  }
-  v(-0.2em)
-}
-
 #let activity-heading(activity, start-date, end-date) = {
   if end-date == "" {
     generic_1x2(
@@ -182,9 +215,5 @@
         [#activity], [#start-date - #end-date]
     )
   }
-  v(-0.05em)
-}
-
-#let spacer() = {
-    v(0.5em)
+  // v(-0.05em)
 }

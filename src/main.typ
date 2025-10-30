@@ -44,7 +44,7 @@
         "Operating System Internals & Design",
         "Operating System Concepts & Usage",
         "Differential Equations w/ Matrix Algebra",
-        "Computer Orgranization",
+        "Computer Organization",
         "Data Structures & Algorithms",
         "Digital Circuit Design w/ VDHL",
         "Calculus I-II",
@@ -57,7 +57,7 @@
   #skills()[
     - *Programming Languages:* Java, Python, Bash, GoLang, C/C++, MATLAB
     - *Development Tools:* VSCode, Zed, git, IntelliJ, PyCharm, Rider, CLion, MATLAB IDE
-    - *Computer Software:* Linux (Arch), Windows, Microsoft Office Products, Google Workspace Products
+    - *Computer Software:* Linux (Arch, Nix), Windows, Microsoft Office Products, Google Workspace Products
   ]
 ]
 
@@ -125,7 +125,7 @@
   #activity-heading(
     "Make-IT-Wright Hackathon 2025",
     "January 2025",
-    "Febuary 2025"
+    "February 2025"
   )
   #activity-heading(
     "ACM Programming Contest",

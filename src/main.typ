@@ -4,7 +4,7 @@
 #let name = "Blake Payne"
 #let phone = ""                     // pls don't dox yourself :sob:
 #let location = "Dayton, OH"
-#let email = ""                     // pls don't dox yourself :sob:
+#let email = ""                     // pls don't dox yourself :sob: // grep -qE "^#let email = "([^"])+"" resume.typ
 #let github = "payne1778"
 #let linkedin = "blake-payne"
 
@@ -108,7 +108,7 @@
 
 #custom-title("Extracurricular Activities")[
   #activity-heading(
-    "Tau Beta Pi Engineering Honor Society, Secretary",
+    "Tau Beta Pi Engineering Honor Society, Vice President",
     "October 2024",
     "Present"
   )

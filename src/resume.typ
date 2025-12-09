@@ -91,17 +91,17 @@
 // Custom functions
 // ----------------
 
-#let generic_1x2(r1c1, r1c2) = {
+#let generic_1x2(cols: (1fr, 1fr), r1c1, r1c2) = {
+  assert.eq(type(cols), array)
   grid(
-    columns: (1fr, 1fr),
+    columns: cols,
     align(left)[#r1c1],
     align(right)[#r1c2]
   )
 }
 
-#let generic_2x2(cols, r1c1, r1c2, r2c1, r2c2) = {
+#let generic_2x2(cols: (1fr, 1fr), r1c1, r1c2, r2c1, r2c2) = {
   assert.eq(type(cols), array)
-
   grid(
     columns: cols,
     align(left)[#r1c1 \ #r2c1],
@@ -109,17 +109,7 @@
   )
 }
 
-#let generic_1x3(cols, r1c1, r1c2, r1c3) = {
-  assert.eq(type(cols), array)
-
-  grid(
-    columns: cols,
-    align(center)[#r1c1],
-    align(center)[#r1c2],
-    align(center)[#r1c3]
-  )
-}
-
+// todo: delete this, it should not exist
 #let spacer() = {
     v(0.5em)
 }
@@ -127,6 +117,7 @@
 #let custom-title(title, body) = {
   [= *#title*]
   body
+  v(0.2em)
 }
 
 #let education-heading(
@@ -137,58 +128,73 @@
   gpa: "", 
   body
 ) = {
+  assert(major != "", message: "major should not be null")
+  assert(uni != "", message: "uni name should not be null")
+  assert(location != "", message: "university name should not be null")
+
+  if gpa != "" {
+    gpa = "GPA: " + gpa
+  }
+
   generic_2x2(
-    (70%, 30%),
+    cols: (70%, 30%),
     [*#major*], [*#grad-date*],
-    [#uni | #location], [GPA: #gpa]
+    [#uni | #location], gpa
   )
   v(-0.1em)
+
   if body != [] {
     v(-0.4em)
     set par(leading: 0.6em)
     set list(indent: 0.5em)
     body
   }
-  v(-0.1em)
 }
 
-#let skills(
+#let skills(body) = {
+  assert(body != [], message: "skills body should not be null")
+
+  set par(leading: 0.6em)
+  set list(
+    body-indent: 0.1em,
+    indent: 0em,
+    marker: []
+  )
   body
-) = {
-  if body != [] {
-    set par(leading: 0.6em)
-    set list(
-      body-indent: 0.1em,
-      indent: 0em,
-      marker: []
-    )
-    body
-  }
 }
 
 #let project-heading(
   name: "", 
   technologies: "", 
   repo-name: "", 
+  github-username: "",
   start-date: "", 
   end-date: "Present", 
   body
 ) = {
+  assert(body != [], message: "project body should not be null")
+  assert(start-date != "", message: "project start date should not be null")
+
   generic_1x2(
     [*#name*], [*#start-date* - *#end-date*]
   )
   v(-0.7em)
-  generic_1x2(
-    emph(technologies), 
-    link("https://github.com/" + repo-name)[#underline(offset: 0.2em)[gh.com/#repo-name]]
-  )
-  v(-0.5em)
-  if body != [] {
-    v(-0.1em)
-    set par(leading: 0.6em)
-    set list(indent: 0.6em)
-    body
+
+  if technologies != "" and repo-name != "" {
+    generic_1x2(
+      cols: (70%, 30%),
+      emph(technologies), 
+      link("https://github.com/" + github-username + "/" + repo-name)[
+        #underline(offset: 0.2em)[gh.com/#repo-name]
+      ]
+    )
+    v(-0.5em)
   }
+
+  v(-0.1em)
+  set par(leading: 0.6em)
+  set list(indent: 0.6em)
+  body
 }
 
 #let work-heading(
@@ -199,18 +205,22 @@
   end-date: "Present", 
   body
 ) = {
+  assert(body != [], message: "work body should not be null")
+  assert(title != "", message: "work title should not be null")
+  assert(company != "", message: "company title should not be null")
+  assert(location != "", message: "company location title should not be null")
+  assert(start-date != "", message: "start date should not be null")
+
   generic_2x2(
-    (1fr, 1fr),
     [*#title*], [*#start-date* - *#end-date*],
     emph(company), emph(location)
   )
   v(-0.04em)
-  if body != [] {
-    v(-0.4em)
-    set par(leading: 0.6em)
-    set list(indent: 0.5em)
-    body
-  }
+  
+  v(-0.4em)
+  set par(leading: 0.6em)
+  set list(indent: 0.5em)
+  body
 }
 
 #let activity-heading(
@@ -219,6 +229,9 @@
   start-date: "", 
   end-date: ""
 ) = {
+  assert(activity != "", message: "activity name should not be null")
+  assert(start-date != "", message: "activity start date should not be null")
+
   let activity-position = ""; 
   let dates = ""; 
 

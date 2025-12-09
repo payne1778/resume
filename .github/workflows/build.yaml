@@ -12,6 +12,8 @@ jobs:
               uses: actions/checkout@v3
               with:
                   ref: experimental
+
+            - name: Delete old resume if exists
               run: |
                   rm -f ./BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf
 

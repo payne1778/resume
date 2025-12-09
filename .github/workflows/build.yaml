@@ -15,7 +15,7 @@ jobs:
               uses: lvignoli/typst-action@main
               with:
                   source_file: |
-                      ./BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf src/main.typ
+                      src/main.typ ./BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf
             - name: Upload PDF file
               uses: actions/upload-artifact@v4
               with:

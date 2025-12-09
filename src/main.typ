@@ -2,9 +2,9 @@
 
 // Put your personal information here
 #let name = "Blake Payne"
-#let phone = ""                     // pls don't dox yourself :sob:
+#let phone = "123-456-4890"                     // pls don't dox yourself :sob:
 #let location = "Dayton, OH"
-#let email = ""                     // pls don't dox yourself :sob: 
+#let email = "example@example.com"                     // pls don't dox yourself :sob: 
 // grep -qE "^#let email = "([^"])+"" resume.typ
 #let github = "payne1778"
 #let linkedin = "blake-payne"

@@ -47,8 +47,9 @@
 #custom-title("Projects")[
   #project-heading(
     name: "Karto",
-    technologies: "Angular, Spring Boot, MariaDB/MySQL, HTTP C.R.U.D.",
+    technologies: "Angular, Spring Boot, MariaDB, MySQL, HTTP C.R.U.D. Requests",
     repo-name: "FIXME",
+    github-username: github,
     start-date: "August 2025",
     end-date: "December 2025"
   )[
@@ -57,7 +58,8 @@
   #project-heading(
     name: "LLM Benchmarker",                
     technologies: "Java, Ollama, Restful APIs",     
-    repo-name: "bencher",                        
+    repo-name: "bencher",         
+    github-username: github,               
     start-date: "July 2025",                      
   )[
     - Benchmarking LLMs from Ollama in Java by evaluating their accuracy on linear algebra problems using the Wolfram Alpha API, contributing insights to LLM mathematical reasoning in the CS research community
@@ -66,6 +68,7 @@
     name: "Translation Library",
     technologies: "Java, Python, TOML",
     repo-name: "Translation-Library",
+    github-username: github,
     start-date: "June 2025",
   )[
     - Building a cross-language TOML-based translation library with a Python CLI and Java Package for managing

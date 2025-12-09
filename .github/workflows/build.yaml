@@ -14,7 +14,9 @@ jobs:
             - name: Typst
               uses: lvignoli/typst-action@main
               with:
-                  source_file: src/main.typ BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf
+                  source_file: |
+                      ./BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf
+                      src/main.typ
             - name: Upload PDF file
               uses: actions/upload-artifact@v4
               with:

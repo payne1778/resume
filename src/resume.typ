@@ -34,7 +34,7 @@
   )
 
   set text(
-    font: font, size: font-size, lang: "en", ligatures: false
+    font: font, size: font-size, lang: "en", ligatures: true
   )
 
   show heading.where(
@@ -97,7 +97,6 @@
     align(left)[#r1c1],
     align(right)[#r1c2]
   )
-  v(-0.5em)
 }
 
 #let generic_2x2(cols, r1c1, r1c2, r2c1, r2c2) = {
@@ -119,24 +118,29 @@
     align(center)[#r1c2],
     align(center)[#r1c3]
   )
-  v(-0.5em)
 }
 
 #let spacer() = {
     v(0.5em)
 }
 
-#let custom-title(title, spacing-between: -0.001em, body) = {
+#let custom-title(title, body) = {
   [= *#title*]
   body
-  v(spacing-between)
 }
 
-#let education-heading(major, grad-date, uni, location, gpa, body) = {
+#let education-heading(
+  major: "", 
+  grad-date: "", 
+  uni: "", 
+  location: "", 
+  gpa: "", 
+  body
+) = {
   generic_2x2(
     (70%, 30%),
     [*#major*], [*#grad-date*],
-    [#uni | #location], [#gpa]
+    [#uni | #location], [GPA: #gpa]
   )
   v(-0.1em)
   if body != [] {
@@ -148,23 +152,9 @@
   v(-0.1em)
 }
 
-#let courses(c1, c2, c3, c4, c5, c6, c7, c8, c9) = {
-    generic_1x3(
-        (31%, 34%, 36%),
-        [#c1], [#c2], [#c3]
-    )
-    generic_1x3(
-        (31%, 34%, 36%),
-        [#c4], [#c5], [#c6]
-    )
-    generic_1x3(
-        (31%, 34%, 36%),
-        [#c7], [#c8], [#c9]
-    )
-    v(0.1em)
-}
-
-#let skills(body) = {
+#let skills(
+  body
+) = {
   if body != [] {
     set par(leading: 0.6em)
     set list(
@@ -176,19 +166,39 @@
   }
 }
 
-#let project-heading(name, start-date, end-date, body) = {
+#let project-heading(
+  name: "", 
+  technologies: "", 
+  repo-name: "", 
+  start-date: "", 
+  end-date: "Present", 
+  body
+) = {
   generic_1x2(
     [*#name*], [*#start-date* - *#end-date*]
   )
+  v(-0.7em)
+  generic_1x2(
+    emph(technologies), 
+    link("https://github.com/" + repo-name)[#underline(offset: 0.2em)[gh.com/#repo-name]]
+  )
+  v(-0.5em)
   if body != [] {
     v(-0.1em)
     set par(leading: 0.6em)
-    set list(indent: 0.5em)
+    set list(indent: 0.6em)
     body
   }
 }
 
-#let work-heading(title, company, location, start-date, end-date, body) = {
+#let work-heading(
+  title: "", 
+  company: "", 
+  location: "", 
+  start-date: "", 
+  end-date: "Present", 
+  body
+) = {
   generic_2x2(
     (1fr, 1fr),
     [*#title*], [*#start-date* - *#end-date*],
@@ -203,16 +213,31 @@
   }
 }
 
-#let activity-heading(activity, start-date, end-date) = {
+#let activity-heading(
+  position: "", 
+  activity: "", 
+  start-date: "", 
+  end-date: ""
+) = {
+  let activity-position = ""; 
+  let dates = ""; 
+
   if end-date == "" {
-    generic_1x2(
-        [#activity], [#start-date]
-    )
+    dates = start-date;
   }
   else {
-    generic_1x2(
-        [#activity], [#start-date - #end-date]
-    )
+    dates = [#start-date - #end-date]
   }
-  // v(-0.05em)
+
+  if position == "" {
+    activity-position = activity
+  }
+  else {
+    activity-position = [#emph(position), #activity]
+  }
+  
+  generic_1x2(
+    activity-position, dates
+  )
+  v(-0.5em)
 }

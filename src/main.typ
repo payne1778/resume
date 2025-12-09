@@ -1,103 +1,87 @@
-#import "./resume.typ": resume, custom-title, work-heading, project-heading, education-heading, skills, activity-heading, spacer, courses
+#import "./resume.typ": *
 
 // Put your personal information here
 #let name = "Blake Payne"
 #let phone = ""                     // pls don't dox yourself :sob:
 #let location = "Dayton, OH"
-#let email = ""                     // pls don't dox yourself :sob: // grep -qE "^#let email = "([^"])+"" resume.typ
+#let email = ""                     // pls don't dox yourself :sob: 
+// grep -qE "^#let email = "([^"])+"" resume.typ
 #let github = "payne1778"
 #let linkedin = "blake-payne"
 
 #show: resume.with(
-  author-position: center,
-  personal-info-position: center,
   author-name: name,
   phone: phone,
   location: location,
   email: email,
-  website: "",
   linkedin-user-id: linkedin,
   github-username: github
 )
 
 #custom-title("Education")[
   #education-heading(
-    "Bachelor of Science in Computer Engineering",      // major
-    "December 2026",                                    // grad-date
-    "Wright State University",                          // uni
-    "Dayton, OH",                                       // location
-    "GPA: 3.88"                                         // gpa
+    major: "Bachelor of Science in Computer Engineering",     
+    grad-date: "December 2026",                                   
+    uni: "Wright State University",                         
+    location: "Dayton, OH",                                       
+    gpa: "3.88"                                        
   )[
     Minor in German
   ]
   #education-heading(
-      "Combined B.S./M.S. (4+1) Program in Computer Engineering",
-      "December 2027",
-      "Wright State University",
-      "Dayton, OH",
-      ""
-    )[]
-]
-
-#custom-title("Courses")[
-    #courses(
-        "Operating System Internals & Design",
-        "Operating System Concepts & Usage",
-        "Differential Equations w/ Matrix Algebra",
-        "Computer Organization",
-        "Data Structures & Algorithms",
-        "Digital Circuit Design w/ VDHL",
-        "Calculus I-II",
-        "Computer Science I-II",
-        "Analog Circuit Theory",
-    )
+    major: "Combined B.S./M.S. (4+1) Program in Computer Engineering",
+    grad-date: "December 2027",
+    uni: "Wright State University",
+    location: "Dayton, OH"
+  )[]
 ]
 
 #custom-title("Skills")[
   #skills()[
-    - *Programming Languages:* Java, Python, Bash, GoLang, C/C++, MATLAB
-    - *Development Tools:* VSCode, Zed, git, IntelliJ, PyCharm, Rider, CLion, MATLAB IDE
-    - *Computer Software:* Linux (Arch, Nix), Windows, Microsoft Office Products, Google Workspace Products
+    - *Programming Languages:* Java, Python, Rust, GoLang, C, Matlab
+    - *Relevant Technologies:* Java Swing, Scripting, Restful APIs, Typst, Ollama, MariaDB, MySQL, TOML
+    - *Development Tools:* VSCode, Zed, git, JetBrains IDEs, Docker, make, ArduinoIDE
   ]
 ]
 
 #custom-title("Projects")[
   #project-heading(
-    "LLM Benchmarker",          // name
-    "July 2025",                // start date
-    "Present"                   // end date
+    name: "Karto",
+    technologies: "Angular, Spring Boot, MariaDB/MySQL, HTTP C.R.U.D.",
+    repo-name: "FIXME",
+    start-date: "August 2025",
+    end-date: "December 2025"
   )[
-    - Benchmarking LLMs from Ollama in Java by evaluating their accuracy on linear algebra problems using the
-      Wolfram Alpha API, contributing insights to LLM mathematical reasoning in the CS research community
+    - make good explaination here pls thanks 
   ]
   #project-heading(
-    "Translation Library",
-    "June 2025",
-    "Present"
+    name: "LLM Benchmarker",                
+    technologies: "Java, Ollama, Restful APIs",     
+    repo-name: "bencher",                        
+    start-date: "July 2025",                      
+  )[
+    - Benchmarking LLMs from Ollama in Java by evaluating their accuracy on linear algebra problems using the Wolfram Alpha API, contributing insights to LLM mathematical reasoning in the CS research community
+  ]
+  #project-heading(
+    name: "Translation Library",
+    technologies: "Java, Python, TOML",
+    repo-name: "Translation-Library",
+    start-date: "June 2025",
   )[
     - Building a cross-language TOML-based translation library with a Python CLI and Java Package for managing
       multilingual content across apps and tools
     - Streamlining internationalization by standardizing translation files for smoother developer/translator collaboration
   ]
-  #project-heading(
-    "Submission Organizer",
-    "November 2024",
-    "December 2024"
-  )[
-    - Co-engineered a lecture-wide file organizer in Python to process, filter, and sort student submissions, significantly
-      reducing manual effort for TAs and saving dozens of hours during grading
-  ]
 ]
 
 #custom-title("Experience")[
   #work-heading(
-    "Computer Science Teaching Assistant",              // title
-    "Wright State University On-Campus Employment ",    // company
-    "Fairborn, OH",                                     // location
-    "August 2024",                                      // start-date
-    "Present"                                           // end-date
+    title: "Computer Science Teaching Assistant",              
+    company: "Wright State University On-Campus Employment ",    
+    location: "Fairborn, OH",                                     
+    start-date: "August 2024",                                     
   )[
-    - Led weekly lecture sections for \~50 students, facilitating engaging discussions and academic support through
+    - Led weekly lecture sections for an average 50 student class size, facilitating engaging discussions and academic support through
       office hours and personalized communication
     - Collaborated with faculty and a team of TAs to coordinate grading logistics, address student concerns, and ensure
       consistency across course delivery
@@ -108,29 +92,32 @@
 
 #custom-title("Extracurricular Activities")[
   #activity-heading(
-    "Tau Beta Pi Engineering Honor Society, Vice President",
-    "October 2024",
-    "Present"
+    position: "Vice President",
+    activity: "Tau Beta Pi Engineering Honor Society",
+    start-date: "October 2024",
+    end-date: "Present"
   )
   #activity-heading(
-    "IEEE Wright State University Student Chapter, Treasurer",
-    "August 2023",
-    "Present"
+    position: "Treasurer",
+    activity: "IEEE Wright State University Student Chapter",
+    start-date: "August 2023",
+    end-date: "Present"
   )
   #activity-heading(
-    "Wright State Honors Program",
-    "December 2022",
-    "Present"
+    position: "University Scholar",
+    activity: "Wright State Honors Program",
+    start-date: "December 2022",
+    end-date: "Present"
   )
   #activity-heading(
-    "Make-IT-Wright Hackathon 2025",
-    "January 2025",
-    "February 2025"
+    position: "Participant",
+    activity: "ACM Annual Fall Programming Contest",
+    start-date: "October 2023, October 2024"
   )
   #activity-heading(
-    "ACM Programming Contest",
-    "October 2023, October 2024",
-    ""
+    position: "Participant",
+    activity: "Make-IT-Wright Hackathon 2025",
+    start-date: "January 2025",
   )
 ]
 
@@ -138,13 +125,12 @@
 
 #custom-title("Achievements")[
   #activity-heading(
-    "College of Computer Science & Engineering Dean’s List",
-    "August 2023",
-    "Present"
+    activity: "College of Computer Science & Engineering Dean’s List",
+    start-date: "August 2023",
+    end-date: "Present"
   )
   #activity-heading(
-    "Wright State Honors Program Competitive Scholarship",
-    "June 2023",
-    ""
+    activity: "Wright State Honors Program Competitive Scholarship",
+    start-date: "June 2023"
   )
 ]

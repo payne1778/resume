@@ -24,7 +24,7 @@
     grad-date: "December 2026",                                   
     uni: "Wright State University",                         
     location: "Dayton, OH",                                       
-    gpa: "3.88"                                        
+    gpa: "3.84"                                        
   )[
     Minor in German
   ]

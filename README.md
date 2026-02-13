@@ -1,9 +1,9 @@
-### \[ [current resume](/BLAKE%20PAYNE%20COMPUTER%20ENGINEERING%2002-13-2026.pdf) \]
+### \[ [current resume](/BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf) \]
 
 #### ~how to compile my lovely resume~
 
 ```bash
-typst compile --root . src/main.typ BLAKE\ PAYNE\ COMPUTER\ ENGINEERING\ 02-13-2026.pdf
+typst compile --root . src/main.typ BLAKE\ PAYNE\ COMPUTER\ ENGINEERING\ $(date "+%m-%d-%Y").pdf
 ```
 
 ### markdown is now cringe btw

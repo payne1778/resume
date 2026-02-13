@@ -4,7 +4,7 @@
   bottom-margin: 0.4in,
   left-margin: 0.4in,
   right-margin: 0.4in,
-  font: "Liberation Serif",
+  font: "Liberation Serif ",
   font-size: 11pt,
   personal-info-font-size: 10pt,
   author-name: "",
@@ -34,7 +34,7 @@
   )
 
   set text(
-    font: font, size: font-size, lang: "en", ligatures: false
+    font: font, size: font-size, lang: "en", ligatures: true
   )
 
   show heading.where(
@@ -91,18 +91,17 @@
 // Custom functions
 // ----------------
 
-#let generic_1x2(r1c1, r1c2) = {
+#let generic_1x2(cols: (1fr, 1fr), r1c1, r1c2) = {
+  assert.eq(type(cols), array)
   grid(
-    columns: (1fr, 1fr),
+    columns: cols,
     align(left)[#r1c1],
     align(right)[#r1c2]
   )
-  v(-0.5em)
 }
 
-#let generic_2x2(cols, r1c1, r1c2, r2c1, r2c2) = {
+#let generic_2x2(cols: (1fr, 1fr), r1c1, r1c2, r2c1, r2c2) = {
   assert.eq(type(cols), array)
-
   grid(
     columns: cols,
     align(left)[#r1c1 \ #r2c1],
@@ -110,109 +109,147 @@
   )
 }
 
-#let generic_1x3(cols, r1c1, r1c2, r1c3) = {
-  assert.eq(type(cols), array)
-
-  grid(
-    columns: cols,
-    align(center)[#r1c1],
-    align(center)[#r1c2],
-    align(center)[#r1c3]
-  )
-  v(-0.5em)
-}
-
 #let spacer() = {
     v(0.5em)
 }
 
-#let custom-title(title, spacing-between: -0.001em, body) = {
+#let custom-title(title, body) = {
   [= *#title*]
   body
-  v(spacing-between)
+  v(0.2em)
 }
 
-#let education-heading(major, grad-date, uni, location, gpa, body) = {
+#let education-heading(
+  major: "", 
+  grad-date: "", 
+  uni: "", 
+  location: "", 
+  gpa: "", 
+  body
+) = {
+  assert(major != "", message: "major should not be null")
+  assert(uni != "", message: "uni name should not be null")
+  assert(location != "", message: "university name should not be null")
+
+  if gpa != "" {
+    gpa = "GPA: " + gpa
+  }
+
   generic_2x2(
-    (70%, 30%),
+    cols: (70%, 30%),
     [*#major*], [*#grad-date*],
-    [#uni | #location], [#gpa]
+    [#uni | #location], gpa
   )
   v(-0.1em)
+
   if body != [] {
     v(-0.4em)
     set par(leading: 0.6em)
     set list(indent: 0.5em)
     body
   }
-  v(-0.1em)
-}
-
-#let courses(c1, c2, c3, c4, c5, c6, c7, c8, c9) = {
-    generic_1x3(
-        (31%, 34%, 36%),
-        [#c1], [#c2], [#c3]
-    )
-    generic_1x3(
-        (31%, 34%, 36%),
-        [#c4], [#c5], [#c6]
-    )
-    generic_1x3(
-        (31%, 34%, 36%),
-        [#c7], [#c8], [#c9]
-    )
-    v(0.1em)
 }
 
 #let skills(body) = {
-  if body != [] {
-    set par(leading: 0.6em)
-    set list(
-      body-indent: 0.1em,
-      indent: 0em,
-      marker: []
-    )
-    body
-  }
+  assert(body != [], message: "skills body should not be null")
+
+  set par(leading: 0.6em)
+  set list(
+    body-indent: 0.1em,
+    indent: 0em,
+    marker: []
+  )
+  body
 }
 
-#let project-heading(name, start-date, end-date, body) = {
+#let project-heading(
+  name: "", 
+  technologies: "", 
+  repo-name: "", 
+  github-username: "",
+  start-date: "", 
+  end-date: "Present", 
+  body
+) = {
+  assert(body != [], message: "project body should not be null")
+  assert(start-date != "", message: "project start date should not be null")
+
   generic_1x2(
     [*#name*], [*#start-date* - *#end-date*]
   )
-  if body != [] {
-    v(-0.1em)
-    set par(leading: 0.6em)
-    set list(indent: 0.5em)
-    body
+  v(-0.7em)
+
+  if technologies != "" and repo-name != "" {
+    generic_1x2(
+      cols: (70%, 30%),
+      emph(technologies), 
+      link("https://github.com/" + github-username + "/" + repo-name)[
+        #underline(offset: 0.2em)[gh.com/#repo-name]
+      ]
+    )
+    v(-0.5em)
   }
+
+  v(-0.1em)
+  set par(leading: 0.6em)
+  set list(indent: 0.6em)
+  body
 }
 
-#let work-heading(title, company, location, start-date, end-date, body) = {
+#let work-heading(
+  title: "", 
+  company: "", 
+  location: "", 
+  start-date: "", 
+  end-date: "Present", 
+  body
+) = {
+  assert(body != [], message: "work body should not be null")
+  assert(title != "", message: "work title should not be null")
+  assert(company != "", message: "company title should not be null")
+  assert(location != "", message: "company location title should not be null")
+  assert(start-date != "", message: "start date should not be null")
+
   generic_2x2(
-    (1fr, 1fr),
     [*#title*], [*#start-date* - *#end-date*],
     emph(company), emph(location)
   )
   v(-0.04em)
-  if body != [] {
-    v(-0.4em)
-    set par(leading: 0.6em)
-    set list(indent: 0.5em)
-    body
-  }
+  
+  v(-0.4em)
+  set par(leading: 0.6em)
+  set list(indent: 0.5em)
+  body
 }
 
-#let activity-heading(activity, start-date, end-date) = {
+#let activity-heading(
+  position: "", 
+  activity: "", 
+  start-date: "", 
+  end-date: ""
+) = {
+  assert(activity != "", message: "activity name should not be null")
+  assert(start-date != "", message: "activity start date should not be null")
+
+  let activity-position = ""; 
+  let dates = ""; 
+
   if end-date == "" {
-    generic_1x2(
-        [#activity], [#start-date]
-    )
+    dates = start-date;
   }
   else {
-    generic_1x2(
-        [#activity], [#start-date - #end-date]
-    )
+    dates = [#start-date - #end-date]
   }
-  // v(-0.05em)
+
+  if position == "" {
+    activity-position = activity
+  }
+  else {
+    activity-position = [#emph(position), #activity]
+  }
+  
+  generic_1x2(
+    activity-position, dates
+  )
+  v(-0.5em)
 }

@@ -1,0 +1,38 @@
+name: Build Typst document
+on: [push, workflow_dispatch]
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  ref: experimental
+
+            - name: Delete old resume if exists
+              run: |
+                  rm -f ./BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf
+
+            - name: Typst
+              uses: lvignoli/typst-action@main
+              with:
+                  source_file: ./BLAKE_PAYNE_COMPUTER_ENGINEERING.pdf
+                  options: src/main.typ
+
+            - name: Upload PDF file
+              uses: actions/upload-artifact@v4
+              with:
+                  name: PDF
+                  path: ./**/*.pdf
+
+            - name: Commit changes
+              run: |
+                  git config user.name "github-actions"
+                  git config user.email "github-actions@github.com"
+                  git add *.pdf
+                  git commit -m "Add generated PDF from artifact" || echo "No changes to commit"
+                  git push origin experimental

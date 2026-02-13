@@ -4,7 +4,7 @@
   bottom-margin: 0.4in,
   left-margin: 0.4in,
   right-margin: 0.4in,
-  font: "Liberation Serif",
+  font: "Liberation Serif ",
   font-size: 11pt,
   personal-info-font-size: 10pt,
   author-name: "",
@@ -109,7 +109,6 @@
   )
 }
 
-// todo: delete this, it should not exist
 #let spacer() = {
     v(0.5em)
 }

@@ -23,7 +23,7 @@
     major: "Bachelor of Science in Computer Engineering",     
     grad-date: "December 2026",                                   
     uni: "Wright State University",                         
-    location: "Dayton, OH",                                       
+    location: "Dayton, OH ",                                       
     gpa: "3.84"                                        
   )[
     Minor in German
@@ -38,9 +38,9 @@
 
 #custom-title("Skills")[
   #skills()[
-    - *Programming Languages:* Java, Python, Rust, GoLang, C, Matlab
-    - *Relevant Technologies:* Java Swing, Scripting, Restful APIs, Typst, Ollama, MariaDB, MySQL, TOML
-    - *Development Tools:* VSCode, Zed, git, JetBrains IDEs, Docker, make, ArduinoIDE
+    - *Programming Languages:* Java, Python, C, GoLang, HTML, JS/TS, MATLAB
+    - *Relevant Technologies:* Java Swing, Scripting, Restful APIs, Typst, Embedded Boards, Ollama, MariaDB, SQL, TOML
+    - *Development Tools:* VSCode, Zed, git, JetBrains IDEs, Bruno, Docker, make, ArduinoIDE, Oracle VirtualBox 
   ]
 ]
 
@@ -48,32 +48,34 @@
   #project-heading(
     name: "Karto",
     technologies: "Angular, Spring Boot, MariaDB, MySQL, HTTP C.R.U.D. Requests",
-    repo-name: "FIXME",
+    repo-name: "cs4900-karto",
     github-username: github,
     start-date: "August 2025",
     end-date: "December 2025"
   )[
-    - make good explaination here pls thanks 
+    - Developed a full-stack vehicle management web application using Angular and Spring Boot for tracking vehicles, maintenance history, and trusted gas stations
+    - Designed and implemented RESTful CRUD APIs backed by MySQL/MariaDB, including database schema design and secure, account-scoped authentication
   ]
+
   #project-heading(
     name: "LLM Benchmarker",                
-    technologies: "Java, Ollama, Restful APIs",     
+    technologies: "Java, Ollama, RESTful APIs",     
     repo-name: "bencher",         
     github-username: github,               
-    start-date: "July 2025",                      
+    start-date: "July 2025"                      
   )[
-    - Benchmarking LLMs from Ollama in Java by evaluating their accuracy on linear algebra problems using the Wolfram Alpha API, contributing insights to LLM mathematical reasoning in the CS research community
+    - Building a Java-based benchmarking framework to evaluate Ollama-sourced LLMs on linear algebra solving performance using the Wolfram Alpha API
   ]
+
   #project-heading(
     name: "Translation Library",
-    technologies: "Java, Python, TOML",
-    repo-name: "Translation-Library",
+    technologies: "Python, TOML, Pydantic, Typer CLI",
+    repo-name: "tl-python",
     github-username: github,
-    start-date: "June 2025",
+    start-date: "June 2025"
   )[
-    - Building a cross-language TOML-based translation library with a Python CLI and Java Package for managing
-      multilingual content across apps and tools
-    - Streamlining internationalization by standardizing translation files for smoother developer/translator collaboration
+    - Developing a cross-language TOML-based translation library Python package for managing multilingual content
+    - Standardizing internationalization workflows to improve consistency between developers and translators
   ]
 ]
 
@@ -113,14 +115,14 @@
     end-date: "Present"
   )
   #activity-heading(
-    position: "Participant",
-    activity: "ACM Annual Fall Programming Contest",
-    start-date: "October 2023, October 2024"
+    position: "Participant & Winner",
+    activity: "Make-IT-Wright Hackathon",
+    start-date: "January 2025, February 2026",
   )
   #activity-heading(
     position: "Participant",
-    activity: "Make-IT-Wright Hackathon 2025",
-    start-date: "January 2025",
+    activity: "ACM Annual Fall Programming Contest",
+    start-date: "October 2023, October 2024"
   )
 ]
 

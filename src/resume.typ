@@ -4,7 +4,7 @@
   bottom-margin: 0.4in,
   left-margin: 0.4in,
   right-margin: 0.4in,
-  font: "Liberation Serif ",
+  font: "Carlito",
   font-size: 11pt,
   personal-info-font-size: 10pt,
   author-name: "",
